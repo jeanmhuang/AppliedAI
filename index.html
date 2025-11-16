@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive technical review for Applied AI Engineer interviews">
+    <title>Applied AI Engineer | Technical Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-section {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .intro {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        .section {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .content-item {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 1.25rem;
+            border-radius: 10px;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .content-item h3 {
+            color: #f1f5f9;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-item p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .secondary-button {
+            background: rgba(59, 130, 246, 0.2);
+            border: 2px solid #3b82f6;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(6, 182, 212, 0.2);
+            border: 1px solid #06b6d4;
+            color: #06b6d4;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-section, .section {
+                padding: 1.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container > * {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .container > *:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .container > *:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .container > *:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Applied AI Engineer</h1>
+            <p class="subtitle">Technical Interview Preparation Guide</p>
+        </header>
+
+        <div class="hero-section">
+            <p class="intro">
+                A comprehensive technical resource covering production LLM systems, prompt engineering, 
+                full-stack AI architecture, and system design. Everything you need to prepare for 
+                Applied AI Engineering interviews.
+            </p>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Technical Sections</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Code Examples</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Interview Questions</div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <a href="#content" class="cta-button">
+                    📚 Explore Content
+                </a>
+            </div>
+        </div>
+
+        <div class="section" id="content">
+            <h2>📖 What's Covered</h2>
+            <div class="content-grid">
+                <div class="content-item">
+                    <h3>🤖 LLM APIs & Production</h3>
+                    <p>OpenAI and Anthropic integration, error handling, retry logic, cost optimization, caching strategies, and production best practices</p>
+                </div>
+                <div class="content-item">
+                    <h3>✍️ Prompt Engineering</h3>
+                    <p>Few-shot learning, chain-of-thought prompting, system messages, prompt templates, input validation, and output quality control</p>
+                </div>
+                <div class="content-item">
+                    <h3>🏗️ Full-Stack Architecture</h3>
+                    <p>React streaming components, FastAPI backends, database design, background task processing, and WebSocket integration</p>
+                </div>
+                <div class="content-item">
+                    <h3>🎯 System Design</h3>
+                    <p>Scaling to millions of users, caching strategies, rate limiting, load balancing, failover mechanisms, and monitoring</p>
+                </div>
+                <div class="content-item">
+                    <h3>📘 WordPress & PHP</h3>
+                    <p>Plugin development, WordPress hooks, Gutenberg blocks, REST API endpoints, and PHP for Python developers</p>
+                </div>
+                <div class="content-item">
+                    <h3>⚡ Performance Optimization</h3>
+                    <p>Frontend code splitting, debouncing, connection pooling, query optimization, and batch processing strategies</p>
+                </div>
+                <div class="content-item">
+                    <h3>🔒 Security</h3>
+                    <p>Input validation, prompt injection prevention, content moderation, API key management, and secure coding practices</p>
+                </div>
+                <div class="content-item">
+                    <h3>🧠 ML Fundamentals</h3>
+                    <p>Neural networks, transformers, attention mechanisms, embeddings, training vs inference, and key ML concepts</p>
+                </div>
+                <div class="content-item">
+                    <h3>💬 Interview Preparation</h3>
+                    <p>Common technical questions, system design scenarios, behavioral questions, and best practices for interviews</p>
+                </div>
+                <div class="content-item">
+                    <h3>⚡ Quick Reference</h3>
+                    <p>Cheat sheets, quick answers, system design templates, and day-of-interview preparation materials</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💻 Technical Topics</h2>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript/React</span>
+                <span class="skill-tag">LLM APIs (OpenAI, Anthropic)</span>
+                <span class="skill-tag">System Design</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Prompt Engineering</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Full-Stack Development</span>
+                <span class="skill-tag">WordPress/PHP</span>
+                <span class="skill-tag">API Design</span>
+                <span class="skill-tag">Database Optimization</span>
+                <span class="skill-tag">Caching Strategies</span>
+                <span class="skill-tag">Security Best Practices</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Content Highlights</h2>
+            
+            <div class="content-item" style="margin-bottom: 1rem;">
+                <h3>Production-Ready Code Examples</h3>
+                <p>All examples include error handling, retry logic, and best practices for production systems. Copy-paste ready with explanations.</p>
+            </div>
+
+            <div class="content-item" style="margin-bottom: 1rem;">
+                <h3>System Design Patterns</h3>
+                <p>Architecture diagrams and detailed explanations of scaling AI applications from prototype to millions of users.</p>
+            </div>
+
+            <div class="content-item" style="margin-bottom: 1rem;">
+                <h3>Interview Question Bank</h3>
+                <p>Technical and behavioral questions with comprehensive STAR-format answers and explanation of thought process.</p>
+            </div>
+
+            <div class="content-item">
+                <h3>Real-World Scenarios</h3>
+                <p>Practical examples from production AI systems including cost optimization, error handling, and scaling strategies.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 How to Use This Guide</h2>
+            <p class="intro">
+                <strong>For Interview Prep:</strong> Work through sections systematically, focusing on areas 
+                where you need strengthening. Practice coding examples and system design scenarios.
+            </p>
+            <p class="intro">
+                <strong>As Reference:</strong> Use the quick reference section for last-minute review before 
+                interviews. Bookmark specific sections for easy access.
+            </p>
+            <p class="intro">
+                <strong>For Learning:</strong> All code examples are complete and runnable. Try modifying them 
+                to deepen your understanding of the concepts.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>✨ Features</h2>
+            <div class="content-grid">
+                <div class="content-item">
+                    <h3>📱 Mobile Responsive</h3>
+                    <p>Study on any device - phone, tablet, or desktop</p>
+                </div>
+                <div class="content-item">
+                    <h3>📋 Copy-Paste Ready</h3>
+                    <p>All code examples with one-click copy buttons</p>
+                </div>
+                <div class="content-item">
+                    <h3>🎨 Clean Design</h3>
+                    <p>Easy-to-read dark theme optimized for long study sessions</p>
+                </div>
+                <div class="content-item">
+                    <h3>🔍 Searchable</h3>
+                    <p>Organized content with smooth navigation between sections</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Applied AI Engineer Technical Interview Preparation | 2025</p>
+            <p>Open source technical reference for AI engineering interviews</p>
+        </footer>
+    </div>
+
+    <script>
+        console.log('%c🚀 Applied AI Engineer Technical Review', 'font-size: 20px; color: #3b82f6; font-weight: bold;');
+        console.log('%cComprehensive interview preparation guide', 'font-size: 14px; color: #06b6d4;');
+    </script>
+</body>
+</html>
